@@ -25,6 +25,14 @@
         <service
             android:name=".service.RemoteServiceMessage"
             android:process=":message" />
+
+        <receiver android:name=".BootBroadCast" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" >
+                </action>
+
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
