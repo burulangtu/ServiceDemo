@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import com.sunkai.servicedemo.service.IntentServiceTest;
 import com.sunkai.servicedemo.service.RemoteServiceAidl;
 
 /**
@@ -14,9 +15,7 @@ public class Alarmreceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         if (intent.getAction().equals("arui.alarm.action")) {
-            Intent i = new Intent();
-            i.setClass(context, RemoteServiceAidl.class);
-            context.startService(i);
+            context.startService(new Intent(context, IntentServiceTest.class));
         }
     }
 }

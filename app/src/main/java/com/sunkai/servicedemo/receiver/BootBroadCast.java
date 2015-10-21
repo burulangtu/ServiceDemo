@@ -7,7 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.SystemClock;
 
-import com.sunkai.servicedemo.service.RemoteServiceAidl;
+import com.sunkai.servicedemo.service.IntentServiceTest;
 
 /**
  * Created by sunkai on 15/10/21.
@@ -16,8 +16,7 @@ public class BootBroadCast extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent mintent) {
         //开机启动服务
-        Intent service = new Intent(context, RemoteServiceAidl.class);
-        context.startService(service);
+        context.startService(new Intent(context, IntentServiceTest.class));
         if (Intent.ACTION_BOOT_COMPLETED.equals(mintent.getAction())) {
             // 启动完成
             Intent intent = new Intent(context, Alarmreceiver.class);
